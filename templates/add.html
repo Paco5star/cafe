@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Add Cafe</h1>
+  <form method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+      {{ form.name.label }} {{ form.name(size=40, class_='form-control') }}
+    </div>
+    <div class="mb-3">
+      {{ form.location.label }} {{ form.location(size=40, class_='form-control') }}
+    </div>
+    <div class="mb-3">
+      {{ form.wifi.label }} {{ form.wifi(class_='form-check-input') }}
+    </div>
+    <div class="mb-3">
+      {{ form.sockets.label }} {{ form.sockets(class_='form-check-input') }}
+    </div>
+    <div class="mb-3">
+      {{ form.img_url.label }} {{ form.img_url(size=40, class_='form-control') }}
+    </div>
+    <div class="mb-3">
+      {{ form.submit(class_='btn btn-primary') }}
+    </div>
+  </form>
+</div>
+{% endblock %}
