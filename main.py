@@ -5,12 +5,13 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 import secrets 
+import os 
 
 secret_key = secrets.token_hex(16)
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///D:/Starting+Files+-+cafe-api-start/instance/cafes.db.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 app.secret_key = secret_key
