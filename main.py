@@ -15,6 +15,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL2", "sqlite:
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 app.secret_key = secret_key
+db.create_all()
 class Cafe(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
